@@ -1,0 +1,23 @@
+
+CoachAI - Virtuele Sportcoach voor Thuisworkouts
+
+Beschrijving:
+CoachAI is een applicatie die fungeert als een virtuele sportcoach voor mensen die thuis willen sporten. De app maakt gebruik van de Azure OpenAI API om gepersonaliseerde workouts voor te stellen, motivatie te bieden, en uitleg te geven over de oefeningen. Dit helpt gebruikers om hun fitnessdoelen effectief te bereiken, zonder de noodzaak van een sportschool.
+
+Functionaliteit:
+- Gepersonaliseerde workouts gebaseerd op de doelen van de gebruiker (kracht, flexibiliteit, etc.)
+- Gebruik van de Azure OpenAI API voor het genereren van trainingsschema's
+- Motivatie en uitleg over oefeningen
+- Client-serverstructuur waarbij de client verzoeken stuurt naar de server die de OpenAI API aanroept
+- Gericht op thuis-sporters die geen toegang hebben tot een sportschool
+
+Technologie:
+- Azure OpenAI API voor het taalmodel
+- Client-serverstructuur in de app
+- Gepersonaliseerde trainingen op basis van gebruikersdoelen
+
+Doelgroep:
+- Thuis-sporters
+- Mensen die hun fitnessdoelen willen bereiken zonder de drukte van een sportschool
+
+Het project is ontworpen om gebruikers te motiveren en te helpen met het verbeteren van hun fitness, ongeacht hun locatie of ervaring.
