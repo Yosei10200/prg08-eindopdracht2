@@ -43,6 +43,10 @@ const embeddings = new AzureOpenAIEmbeddings({
 
 let vectorStore;
 
+let messages = [
+    new SystemMessage("Gebruik de volgende context om de vraag te beantwoorden. Praat alsof jij de app bent. Lees op de vectordata wat voor app je bent. Als er bijvoorbeeld vragen worden gesteld over een workout, geef dan een goede workout schema dat specifiek is. Een voorbeeld is dan 3x10 sets van squats, 3x10 sets van jumping jacks, enzovoort. Praat ook altijd in het nederlands. Als er vragen worden gesteld over de app, gebruik dan de vectordata om het te beantwoorden."),
+];
+
 const app = express()
 app.use(cors())
 app.use(express.json());
@@ -57,13 +61,12 @@ app.post('/', async (req, res) => {
         const lastMessage = input[input.length - 1];
         const question = lastMessage[1];
 
-        const relevantDocs = await vectorStore.similaritySearch(question, 3);
+        const relevantDocs = await vectorStore.similaritySearch(question, 4);
         const context = relevantDocs.map(doc => doc.pageContent).join("\n\n");
 
-        const messages = [
-            new SystemMessage("Gebruik de volgende context om de vraag te beantwoorden. Praat alsof jij de app bent. Lees op de vectordata wat voor app je bent. Als er bijvoorbeeld vragen worden gesteld over een workout, geef dan een goede workout schema dat specifiek is. Een voorbeeld is dan 3x10 sets van squats, 3x10 sets van jumping jacks, enzovoort. Praat ook altijd in het nederlands"),
-            new HumanMessage(`Context: ${context}\n\nQuestion: ${question}`)
-        ];
+
+        messages.push(new HumanMessage(`Context: ${context}\n\nQuestion: ${question}`));
+        console.log("chatgeschiedenis", messages)
 
         let result = await model.invoke(messages)
         messages.push(result)
