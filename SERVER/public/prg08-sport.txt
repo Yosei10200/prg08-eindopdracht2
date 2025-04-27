@@ -1,4 +1,3 @@
-
 CoachAI - Virtuele Sportcoach voor Thuisworkouts
 
 Beschrijving:
@@ -10,6 +9,7 @@ Functionaliteit:
 - Motivatie en uitleg over oefeningen
 - Client-serverstructuur waarbij de client verzoeken stuurt naar de server die de OpenAI API aanroept
 - Gericht op thuis-sporters die geen toegang hebben tot een sportschool
+- Tip voor voeding door de dag voor optimale spiergroei/vetverslies
 
 Technologie:
 - Azure OpenAI API voor het taalmodel
